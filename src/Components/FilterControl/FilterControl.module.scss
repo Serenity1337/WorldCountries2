@@ -1,0 +1,41 @@
+body {
+  margin: 0;
+}
+.filterControlContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 180px 0px 130px 0;
+  background-image: url('../../Utils/globe-2.jpg');
+  margin: 0;
+  .btnContainer {
+    display: flex;
+    margin: 10px 0px 20px 0px;
+    .includedLetterBtn {
+      margin: 0px 5px 0px 5px;
+    }
+    .startingWordBtn,
+    .includedLetterBtn {
+      padding: 10px 15px;
+      border: 0;
+      border-radius: 5px;
+      color: #fff;
+      background-color: #895be6;
+      font-size: 12px;
+      text-transform: uppercase;
+      font-weight: bold;
+      cursor: pointer;
+    }
+  }
+  .searchBar {
+    width: 28%;
+    border-radius: 50px;
+    height: 30px;
+    border: 0;
+  }
+  .searchBar:focus {
+    outline-width: 0;
+    border: 1px solid blue;
+  }
+}
