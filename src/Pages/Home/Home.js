@@ -5,6 +5,8 @@ export const Home = () => {
   const [values, setValues] = useState({
     population: true,
     filteredData: [],
+    basedOnIncluded: false,
+    searchValue: '',
   })
 
   return (
