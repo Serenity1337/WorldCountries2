@@ -5,7 +5,7 @@ export const Header = (props) => {
     <header>
       <h1 className={classes.heading}>World Countries List</h1>
       <div className={classes.subHeading}>
-        Total number of countries: {props.countries.length}
+        Total number of countries: {props.filteredData.length}
       </div>
     </header>
   )

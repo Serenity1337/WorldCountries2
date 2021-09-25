@@ -1,13 +1,17 @@
 import React, { useState, useEffect } from 'react'
+import CountriesCard from '../../Components/CountriesCard'
 import FilterControl from '../../Components/FilterControl'
 import { countries } from '../../Utils/CountryList'
 export const Home = () => {
   const [values, setValues] = useState({
-    population: true,
     filteredData: [],
     basedOnIncluded: false,
-    searchValue: '',
   })
+  useEffect(() => {
+    const valuesCopy = { ...values }
+    valuesCopy.filteredData = countries
+    setValues(valuesCopy)
+  }, [])
 
   return (
     <div>
@@ -16,6 +20,7 @@ export const Home = () => {
         setValues={setValues}
         countries={countries}
       />
+      <CountriesCard filteredData={values.filteredData} />
     </div>
   )
 }

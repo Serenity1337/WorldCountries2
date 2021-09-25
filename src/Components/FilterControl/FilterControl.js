@@ -13,15 +13,20 @@ export const FilterControl = (props) => {
     props.setValues(valuesClone)
   }
   const searchBarFilterHandler = (event) => {
-    // const testFilter = filterBasedOnIncludedLetter(
-    //   event.target.value,
-    //   props.countries
-    // )
-    const testFilter2 = filteredBasedOnSequentialLetters(
-      event.target.value,
-      props.countries
-    )
-    console.log(testFilter2)
+    const valuesCopy = { ...props.values }
+    if (props.values.basedOnIncluded) {
+      valuesCopy.filteredData = filterBasedOnIncludedLetter(
+        event.target.value,
+        props.countries
+      )
+      props.setValues(valuesCopy)
+    } else {
+      valuesCopy.filteredData = filteredBasedOnSequentialLetters(
+        event.target.value,
+        props.countries
+      )
+      props.setValues(valuesCopy)
+    }
   }
   const filterBasedOnIncludedLetter = (searchValue, countries) => {
     const countriesCopy = [...countries]
@@ -51,16 +56,24 @@ export const FilterControl = (props) => {
 
   return (
     <div className={classes.filterControlContainer}>
-      <Header countries={props.countries} />
+      <Header filteredData={props.values.filteredData} />
       <div className={classes.btnContainer}>
         <button
-          className={classes.startingWordBtn}
+          className={`${classes.startingWordBtn} ${
+            !props.values.basedOnIncluded
+              ? `${classes.active}`
+              : `${classes.inactive}`
+          }`}
           onClick={() => sequentialCountryFilterHandler(props.countries)}
         >
           Starting Word
         </button>
         <button
-          className={classes.includedLetterBtn}
+          className={`${classes.includedLetterBtn}  ${
+            props.values.basedOnIncluded
+              ? `${classes.active}`
+              : `${classes.inactive}`
+          }`}
           onClick={() => includedValueCountryFilterHandler(props.countries)}
         >
           Search With Any Word

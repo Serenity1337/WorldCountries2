@@ -1,0 +1,39 @@
+.populationContainer {
+  padding: 20px 159px;
+  display: flex;
+  flex-wrap: wrap;
+  height: auto;
+  .dataContainer {
+    text-align: center;
+
+    background-image: url('../../Utils/map_image.jpg');
+
+    background-size: cover;
+
+    margin: 10px;
+    width: 130px;
+    height: 130px;
+    .populationBarContainer {
+      width: 100%;
+
+      margin: 0px 50px;
+      .populationBar {
+        background-color: #eca539;
+        height: 30px;
+        border-radius: 5px;
+      }
+    }
+    .country {
+      width: 100%;
+      height: 100%;
+      background-color: rgba(17, 17, 17, 0.5);
+      color: #fff;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .population {
+      width: 18%;
+    }
+  }
+}
